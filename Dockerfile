@@ -9,3 +9,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get update && apt-get -o Dpkg::Options::="--force-overwrite" install yarn -yqq
+
+RUN git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
+RUN ./aws-elastic-beanstalk-cli-setup/scripts/bundled_installer
+RUN echo 'export PATH="/root/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
