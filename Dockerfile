@@ -13,5 +13,6 @@ RUN apt-get update && apt-get -o Dpkg::Options::="--force-overwrite" install yar
 RUN apt-get install git -yqq
 RUN git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
 RUN ./aws-elastic-beanstalk-cli-setup/scripts/bundled_installer
-RUN echo 'export PATH="/root/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile && export PATH="/root/.ebcli-virtual-env/executables:$PATH"
+RUN echo 'export PATH="/root/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile
+ENV PATH="/root/.ebcli-virtual-env/executables:$PATH"
 RUN eb -v
