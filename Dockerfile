@@ -1,4 +1,4 @@
-FROM monade/symfony-php
+FROM monade/symfony-php:7.3
 
 RUN curl -sL https://deb.nodesource.com/setup_9.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
